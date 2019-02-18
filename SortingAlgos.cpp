@@ -1,16 +1,16 @@
-//
-// Created by mgosling94 on 2/18/19.
-//
+// Source file for SortingAlgos.h
+// Created by Michael Gosling on 2/18/19.
 
 #include "SortingAlgos.h"
 
 /**
  * Sort an array using the bubble sort algorithm
  * @param a Array to sort
+ * @param length array length
  */
-void SortingAlgos::bubbleSort(int a[]) {
+void SortingAlgos::bubbleSort(int a[], int length) {
     int outer, inner;
-    for (outer = a.length - 1; outer > 0; outer--) {  // counting down
+    for (outer = length - 1; outer > 0; outer--) {  // counting down
         for (inner = 0; inner < outer; inner++) {        // bubbling up
             if (a[inner] > a[inner + 1]) {  // if out of order...swap
                 int temp = a[inner];
@@ -24,12 +24,13 @@ void SortingAlgos::bubbleSort(int a[]) {
 /**
  * Sort an array using the selection sort algorithm
  * @param a Array to sort
+ * @param length length of array
  */
-void SortingAlgos::selectionSort(int a[]) {
+void SortingAlgos::selectionSort(int a[], int length) {
     int outer, inner, min;
-    for (outer = 0; outer < a.length - 1; outer++) { // outer counts down
+    for (outer = 0; outer < length - 1; outer++) { // outer counts down
         min = outer;
-        for (inner = outer + 1; inner < a.length; inner++) {
+        for (inner = outer + 1; inner < length; inner++) {
             if (a[inner] < a[min])
                 min = inner;
         }
@@ -90,7 +91,7 @@ void SortingAlgos::shellSort(int a[], int length) {
  * @param end End of the array
  * @return The pivot point of the array
  */
-int SortingAlgos::Partition(int *array, int beg, int end) {
+int SortingAlgos::partition(int *array, int beg, int end) {
     int p = beg, pivot = array[beg], location;
     for (location = beg + 1; location <= end; location++) {
         if (pivot>array[location]) {
@@ -110,11 +111,11 @@ int SortingAlgos::Partition(int *array, int beg, int end) {
  * @param end end of array
  * @param size size of the array
  */
-void SortingAlgos::QuickSort(int *array, int beg, int end, int size) {
+void SortingAlgos::quickSort(int *array, int beg, int end, int size) {
     if (beg<end) {
-        int pivot = Partition(array, beg, end); // find pivot
-        QuickSort(array, beg, pivot - 1, size); // subsort left
-        QuickSort(array, pivot + 1, end, size); // subsort right
+        int pivot = partition(array, beg, end); // find pivot
+        quickSort(array, beg, pivot - 1, size); // subsort left
+        quickSort(array, pivot + 1, end, size); // subsort right
     }
 }
 
@@ -124,8 +125,8 @@ void SortingAlgos::QuickSort(int *array, int beg, int end, int size) {
  * @param array
  * @param size
  */
-void SortingAlgos::QuickSort(int *array, int size) {
-    QuickSort(array, 0, size - 1, size);
+void SortingAlgos::quickSort(int *array, int size) {
+    quickSort(array, 0, size - 1, size);
 }
 
 

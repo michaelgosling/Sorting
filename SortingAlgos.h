@@ -1,5 +1,5 @@
-//
-// Created by mgosling94 on 2/18/19.
+// Header file for SortingAlgos source file
+// Created by Michael Gosling on 2/18/19.
 //
 
 #ifndef SORTING_SORTINGALGOS_H
@@ -9,10 +9,10 @@
 class SortingAlgos {
 public:
     // Bubble Sort
-    static void bubbleSort(int a[]);
+    static void bubbleSort(int a[], int length);
 
     // Selection Sort
-    static void selectionSort(int a[]);
+    static void selectionSort(int a[], int length);
 
     // Insertion Sort
     static void insertionSort(int a[], int length);
@@ -21,9 +21,9 @@ public:
     static void shellSort(int a[], int length);
 
     // Quick Sort
-    static int Partition(int *array, int beg, int end);
-    static void QuickSort(int *array, int beg, int end, int size);
-    static void QuickSort(int *array, int size);
+    static int partition(int *array, int beg, int end);
+    static void quickSort(int *array, int beg, int end, int size);
+    static void quickSort(int *array, int size);
 
 };
 
