@@ -3,4 +3,4 @@ project(Sorting)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(Sorting main.cpp SortingAlgos.cpp SortingAlgos.h)
+add_executable(Sorting main.cpp SortingAlgos.cpp SortingAlgos.h Sorter.cpp Sorter.h)
