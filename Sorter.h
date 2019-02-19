@@ -22,7 +22,7 @@ private:
 
     void resetSortingArray();
     void createUnsortedArray(int array[]);
-    void writeArrToFile(int array[]);
+    void writeArrToFile(int array[], std::string fileName);
 public:
     Sorter(int size);
     void runSort(Algo algo);

@@ -9,13 +9,13 @@
  * @param length array length
  */
 void SortingAlgos::bubbleSort(int a[], int length) {
-    int outer, inner;
-    for (outer = length - 1; outer > 0; outer--) {  // counting down
-        for (inner = 0; inner < outer; inner++) {        // bubbling up
-            if (a[inner] > a[inner + 1]) {  // if out of order...swap
-                int temp = a[inner];
-                a[inner] = a[inner + 1];
-                a[inner + 1] = temp;
+    int i, j;
+    for (i = 0; i < length-1; i++) {
+        for (j = 0; j < length - i - 1; j++) {
+            if (a[j] > a[j + 1]) {
+                int temp = a[j];
+                a[j] = a[j + 1];
+                a[j + 1] = temp;
             }
         }
     }

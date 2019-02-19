@@ -10,6 +10,7 @@ class SortingAlgos {
 public:
     // Bubble Sort
     static void bubbleSort(int a[], int length);
+    static void swap(int *xp, int *yp);
 
     // Selection Sort
     static void selectionSort(int a[], int length);
