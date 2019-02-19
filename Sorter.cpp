@@ -66,8 +66,10 @@ void Sorter::runSort(Algo algo) {
     }
     end = std::clock(); // end time
     duration = (end - start) / (double) CLOCKS_PER_SEC; // duration
-    if (arraySize == 1000)
+    if (arraySize == 1000) {
         writeArrToFile(sortingArray, fileName);
+        std::cout << "Written to file!" << std::endl << std::endl;
+    }
     else
         std::cout << "Start: " << start << ", End: " << end << ", Duration: " << duration << std::endl << std::endl;
 }
