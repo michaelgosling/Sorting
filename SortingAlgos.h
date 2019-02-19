@@ -10,7 +10,6 @@ class SortingAlgos {
 public:
     // Bubble Sort
     static void bubbleSort(int a[], int length);
-    static void swap(int *xp, int *yp);
 
     // Selection Sort
     static void selectionSort(int a[], int length);
@@ -22,9 +21,12 @@ public:
     static void shellSort(int a[], int length);
 
     // Quick Sort
-    static int partition(int *array, int beg, int end);
-    static void quickSort(int *array, int beg, int end, int size);
-    static void quickSort(int *array, int size);
+    static int partition(int a[], int beg, int end);
+    static void quickSort(int a[], int beg, int end, int length);
+    static void quickSort(int a[], int length);
+
+    // Radix Sort
+    static void radixSort(int a[], int length);
 
 };
 

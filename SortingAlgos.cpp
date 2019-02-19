@@ -86,18 +86,18 @@ void SortingAlgos::shellSort(int a[], int length) {
 
 /**
  * Find the pivot point of the array by partitioning it
- * @param array Array to partition
+ * @param a Array to partition
  * @param beg Beginning of the array
  * @param end End of the array
  * @return The pivot point of the array
  */
-int SortingAlgos::partition(int *array, int beg, int end) {
-    int p = beg, pivot = array[beg], location;
+int SortingAlgos::partition(int a[], int beg, int end) {
+    int p = beg, pivot = a[beg], location;
     for (location = beg + 1; location <= end; location++) {
-        if (pivot>array[location]) {
-            array[p] = array[location];
-            array[location] = array[p + 1];
-            array[p + 1] = pivot;
+        if (pivot>a[location]) {
+            a[p] = a[location];
+            a[location] = a[p + 1];
+            a[p + 1] = pivot;
             p++;
         }
     }
@@ -106,31 +106,40 @@ int SortingAlgos::partition(int *array, int beg, int end) {
 
 /**
  * Sort an array using the Quick Sort algorithm
- * @param array Array to sort
+ * @param a Array to sort
  * @param beg Beginning of array
  * @param end end of array
- * @param size size of the array
+ * @param length size of the array
  */
-void SortingAlgos::quickSort(int *array, int beg, int end, int size) {
+void SortingAlgos::quickSort(int a[], int beg, int end, int length) {
     if (beg<end) {
-        int pivot = partition(array, beg, end); // find pivot
-        quickSort(array, beg, pivot - 1, size); // subsort left
-        quickSort(array, pivot + 1, end, size); // subsort right
+        int pivot = partition(a, beg, end); // find pivot
+        quickSort(a, beg, pivot - 1, length); // subsort left
+        quickSort(a, pivot + 1, end, length); // subsort right
     }
 }
 
 
 /**
  * Overload so we don't always have to pass in the beginning and end
- * @param array
- * @param size
+ * @param a
+ * @param length
  */
-void SortingAlgos::quickSort(int *array, int size) {
-    quickSort(array, 0, size - 1, size);
+void SortingAlgos::quickSort(int a[], int length) {
+    quickSort(a, 0, length - 1, length);
+}
+
+/*
+ * End [Quick Sort]
+ */
+
+/**
+ * Sort array using Radix Sort
+ * @param a array to sort
+ * @param length size of the array
+ */
+void SortingAlgos::radixSort(int a[], int length) {
+    // TODO: Radix Sort
 }
 
 
-/*
- * [Radix Sort]
- */
-// TODO: Radix Sort
