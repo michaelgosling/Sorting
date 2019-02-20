@@ -80,9 +80,6 @@ void SortingAlgos::shellSort(int a[], int length) {
     }
 }
 
-/*
- * [Quick Sort]
- */
 
 /**
  * Find the pivot point of the array by partitioning it
@@ -129,9 +126,76 @@ void SortingAlgos::quickSort(int a[], int length) {
     quickSort(a, 0, length - 1, length);
 }
 
-/*
- * End [Quick Sort]
+
+/**
+ * Merge arrays
+ * @param a array
+ * @param left left index
+ * @param middle middle point
+ * @param right right index
  */
+void SortingAlgos::merge(int a[], int left, int middle, int right) {
+    int i, j, k;
+    int n1 = middle - left + 1;
+    int n2 =  right - middle;
+
+    // temp arrays
+    int L[n1], R[n2];
+
+    // Copy data to temp arrays L[] and R[]
+    for (i = 0; i < n1; i++) L[i] = a[left + i];
+    for (j = 0; j < n2; j++) R[j] = a[middle + 1+ j];
+
+    // merge temp arrays
+    i = 0; // initial index of first subarray
+    j = 0; // initial index of second subarray
+    k = left; // initial index of merged subarray
+    while (i < n1 && j < n2) { // while the index of the subarrays are less than n1 and n2 respectively
+        if (L[i] <= R[j]) { // if the left array value is smaller, assign it's position in the main array
+            a[k] = L[i];
+            i++;
+        } else { // otherwise assign the right array value
+            a[k] = R[j];
+            j++;
+        }
+        k++; // increment merged array index either way
+    }
+
+    // Copy the remaining elements of L[], if there are any
+    while (i < n1) {
+        a[k] = L[i];
+        i++;
+        k++;
+    }
+
+    // Copy the remaining elements of R[], if there are any
+    while (j < n2) {
+        a[k] = R[j];
+        j++;
+        k++;
+    }
+}
+
+/**
+ * Perform Merge Sort on given array
+ * @param a array to sort
+ * @param left left index
+ * @param right right index
+ */
+void SortingAlgos::mergeSort(int a[], int left, int right) {
+    if (left < right) {
+        // get middle to split in two
+        int mid = left+(right-left)/2;
+
+        // sort first and second halves
+        mergeSort(a, left, mid);
+        mergeSort(a, mid+1, right);
+
+        // merge the halves
+        merge(a, left, mid, right);
+    }
+}
+
 
 /**
  * Sort array using Radix Sort

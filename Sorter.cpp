@@ -63,6 +63,12 @@ void Sorter::runSort(Algo algo) {
             fileName = "QuickSort.txt";
             SortingAlgos::quickSort(sortingArray, arraySize);
             break;
+        case Merge:
+            fileName = "MergeSort.txt";
+            SortingAlgos::mergeSort(sortingArray, 0, arraySize-1);
+            break;
+        case Radix:
+            break;
     }
     end = std::clock(); // end time
     duration = (end - start) / (double) CLOCKS_PER_SEC; // duration
@@ -71,7 +77,7 @@ void Sorter::runSort(Algo algo) {
         std::cout << "Written to file!" << std::endl << std::endl;
     }
     else
-        std::cout << "Start: " << start << ", End: " << end << ", Duration: " << duration << std::endl << std::endl;
+        std::cout << "Start: " << start << std::endl << "End: " << end << std::endl << "Duration: " << duration << "s" << std::endl << std::endl;
 }
 
 Sorter::Sorter(int size) {

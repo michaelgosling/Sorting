@@ -8,7 +8,7 @@
 #include <ctime>
 
 enum Algo {
-    Bubble, Selection, Insertion, Shell, Quick
+    Bubble, Selection, Insertion, Shell, Quick, Merge, Radix
 };
 
 class Sorter {

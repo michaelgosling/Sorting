@@ -25,6 +25,10 @@ public:
     static void quickSort(int a[], int beg, int end, int length);
     static void quickSort(int a[], int length);
 
+    // Merge Sort
+    static void merge(int a[], int left, int middle, int right);
+    static void mergeSort(int a[], int left, int right);
+
     // Radix Sort
     static void radixSort(int a[], int length);
 

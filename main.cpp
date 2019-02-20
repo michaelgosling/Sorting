@@ -33,5 +33,9 @@ int main() {
     std::cout << "_Quick Sort" << std::endl;
     sorter.runSort(Quick);
 
+    // run merge sort
+    std::cout << "_Merge Sort_" << std::endl;
+    sorter.runSort(Merge);
+
     return 0;
 }
