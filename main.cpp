@@ -1,12 +1,27 @@
+/*
+ * Main.cpp - Get Array size from the user, generate new array and sort it.
+ * Author: Michael Gosling
+ */
+
 #include <iostream>
 #include "Sorter.h"
+#include <regex>
 
 int main() {
-    std::string userInput;
+    std::string userInput = "";
+    std::regex reg("\\d+");
 
-    // get array size from user
-    std::cout << "Enter an array size: ";
-    std::cin >> userInput;
+    // while the userinput doesn't match the regex
+    while (!std::regex_match(userInput, reg)) {
+        // get array size from user
+        std::cout << "Enter an array size: ";
+        std::cin >> userInput;
+        if (!std::regex_match(userInput, reg)){
+            std::cout << "Invalid input, try again" << std::endl;
+        }
+    }
+
+    // once input is valid, translate it to int.
     int arraySize = stoi(userInput);
 
     // create sorter
@@ -30,7 +45,7 @@ int main() {
     sorter.runSort(Shell);
 
     // run quick sort
-    std::cout << "_Quick Sort" << std::endl;
+    std::cout << "_Quick Sort_" << std::endl;
     sorter.runSort(Quick);
 
     // run merge sort

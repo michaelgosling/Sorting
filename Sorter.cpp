@@ -1,5 +1,5 @@
-//
-// Created by michael on 2/18/19.
+// Source file for Sorter
+// Created by Michael Gosling on 2/18/19.
 //
 
 #include <iostream>

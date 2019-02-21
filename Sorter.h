@@ -1,5 +1,5 @@
-//
-// Created by michael on 2/18/19.
+// Header file for Sorter
+// Created by Michael Gosling on 2/18/19.
 //
 
 #ifndef SORTING_SORTER_H
