@@ -212,12 +212,51 @@ int SortingAlgos::getMax(int a[], int length) {
 }
 
 /**
+ * Sorts the array according to the current digit
+ * @param a Array to sort
+ * @param length Length of array
+ * @param e exponent value
+ */
+void SortingAlgos::countSort(int a[], int length, int e) {
+    // create an output array
+    int out[length];
+    // create a count array to hold digits 0-9
+    int count[10] = {0};
+
+    // Divide the value by the exponent, then mod 10. The remaining value is the
+    // digit we're looking for. We increment that by 1
+    for (auto i = 1; i < length; i++)
+        count[(a[i]/e)%10]++;
+
+    // We add count[i-1] to count[i] in order to get eh actual position of the digit
+    // in the output array
+    for (auto i = 1; i < 10; i++)
+        count[i] += count[i-1];
+
+    // build the output array, iterating backwards
+    for (auto i = length - 1; i >= 0; i--){
+        out[count[(a[i]/e)%10]-1] = a[i];
+        count[(a[i]/e)%10]--;
+    }
+
+    // copy the output array to the sorting array.
+    // now the sorting array contains sorted numbers, according to the current digit
+    for (auto i = 0; i < length; i++)
+        a[i] = out[i];
+}
+
+/**
  * Sort array using Radix Sort
  * @param a array to sort
  * @param length size of the array
  */
 void SortingAlgos::radixSort(int a[], int length) {
-    // TODO: Radix Sort
+    // Find the number with the max value in the array, then we know the number of digits
+    int max = getMax(a, length);
+
+    // Count sort for every digit. We pass exponent, which is 10^i (where i is the current digit)
+    for (auto e = 1; max/e > 0; e *= 10)
+        countSort(a, length, e);
 }
 
 

@@ -52,5 +52,9 @@ int main() {
     std::cout << "_Merge Sort_" << std::endl;
     sorter.runSort(Merge);
 
+    // run radix sort
+    std::cout << "_Radix Sort_" << std::endl;
+    sorter.runSort(Radix);
+
     return 0;
 }
