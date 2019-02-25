@@ -7,6 +7,17 @@
 
 
 class SortingAlgos {
+private:
+    // Quick Sort Helper Functions
+    static int partition(int a[], int beg, int end);
+    static void quickSort(int a[], int beg, int end, int length);
+
+    // Merge Sort Helper functions
+    static void merge(int a[], int left, int middle, int right);
+
+    // Radix Sort helper functions
+    static int getMax(int a[], int length);
+    static void countSort(int a[], int length, int e);
 public:
     // Bubble Sort
     static void bubbleSort(int a[], int length);
@@ -21,12 +32,9 @@ public:
     static void shellSort(int a[], int length);
 
     // Quick Sort
-    static int partition(int a[], int beg, int end);
-    static void quickSort(int a[], int beg, int end, int length);
     static void quickSort(int a[], int length);
 
     // Merge Sort
-    static void merge(int a[], int left, int middle, int right);
     static void mergeSort(int a[], int left, int right);
 
     // Radix Sort

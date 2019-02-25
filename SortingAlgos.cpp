@@ -196,6 +196,20 @@ void SortingAlgos::mergeSort(int a[], int left, int right) {
     }
 }
 
+/**
+ * Gets the highest value integer in the array
+ * @param a Array
+ * @param length Length of array
+ * @return Integer of max value
+ */
+int SortingAlgos::getMax(int a[], int length) {
+    // start with first element in array as max value
+    int max = a[0];
+    // loop through array and set max if the value is higher than the current max
+    for (int i = 1; i < length; i++)
+        max = (a[i] > max) ? a[i] : max;
+    return max;
+}
 
 /**
  * Sort array using Radix Sort
