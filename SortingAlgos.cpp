@@ -80,8 +80,9 @@ void SortingAlgos::shellSort(int a[], int length) {
             // j starts at i and decrements by the gap value as long as it's larger
             // or equal to the gap value
             for (j = i; j >= gap; j -= gap) {
+                // if temp is higher than j minus gap index, assign to j index
                 if (temp < a[j - gap])
-                    a[j] = a[j - gap]; // if temp is higher than j minus gap index, assign to j index
+                    a[j] = a[j - gap];
                 else
                     break;
             }
