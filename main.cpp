@@ -8,17 +8,16 @@
 #include <regex>
 
 int main() {
-    std::string userInput = "";
-    std::regex reg("\\d+");
+    std::string userInput; // holds user input
+    std::regex reg("\\d+"); // validates user input
 
     // while the userinput doesn't match the regex
     while (!std::regex_match(userInput, reg)) {
         // get array size from user
         std::cout << "Enter an array size: ";
         std::cin >> userInput;
-        if (!std::regex_match(userInput, reg)){
-            std::cout << "Invalid input, try again" << std::endl;
-        }
+        if (!std::regex_match(userInput, reg))
+            std::cout << "Invalid input, try again" << std::endl; // if input is invalid, tell them.
     }
 
     // once input is valid, translate it to int.
