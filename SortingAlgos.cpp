@@ -9,9 +9,11 @@
  * @param length array length
  */
 void SortingAlgos::bubbleSort(int a[], int length) {
-    int i, j;
+    int i, j; // indexes
     for (i = 0; i < length-1; i++) {
         for (j = 0; j < length - i - 1; j++) {
+            // if the value of this element is lower than the previous,
+            // swap them
             if (a[j] > a[j + 1]) {
                 int temp = a[j];
                 a[j] = a[j + 1];
@@ -28,13 +30,10 @@ void SortingAlgos::bubbleSort(int a[], int length) {
  */
 void SortingAlgos::selectionSort(int a[], int length) {
     int outer, inner, min;
-    for (outer = 0; outer < length - 1; outer++) { // outer counts down
+    for (outer = 0; outer < length - 1; outer++) {
         min = outer;
-        for (inner = outer + 1; inner < length; inner++) {
-            if (a[inner] < a[min])
-                min = inner;
-        }
-        // a[min] is least among a[outer]..a[a.length - 1]
+        for (inner = outer + 1; inner < length; inner++)
+            if (a[inner] < a[min]) min = inner;
         int temp = a[outer];
         a[outer] = a[min];
         a[min] = temp;
@@ -50,6 +49,8 @@ void SortingAlgos::insertionSort(int a[], int length) {
     int i, j, tmp;
     for (i = 1; i < length; i++) {
         j = i;
+        // move backwards from j (starting at i) until j hits 0, swapping values if they're
+        // out of order
         while (j > 0 && a[j - 1] > a[j]) {
             tmp = a[j];
             a[j] = a[j - 1];
@@ -65,17 +66,26 @@ void SortingAlgos::insertionSort(int a[], int length) {
  * @param length Length of the array
  */
 void SortingAlgos::shellSort(int a[], int length) {
-    int i, j, increment;
-    for (increment = length / 2; increment > 0; increment /= 2) {
-        for (i = increment; i < length; i++) {
+    /*
+     * This sort essentially splits up the array and uses insertion sort,
+     * decreasing the gap each time it hits the end of the array.
+     */
+
+    int i, j, gap;
+    // starting at half the length, as long as gap is above 0, dividing by half each time
+    for (gap = length / 2; gap > 0; gap /= 2) {
+        // i starts at gap and increases as long as it's lower than length
+        for (i = gap; i < length; i++) {
             auto temp = a[i];
-            for (j = i; j >= increment; j -= increment) {
-                if (temp < a[j - increment])
-                    a[j] = a[j - increment];
+            // j starts at i and decrements by the gap value as long as it's larger
+            // or equal to the gap value
+            for (j = i; j >= gap; j -= gap) {
+                if (temp < a[j - gap])
+                    a[j] = a[j - gap]; // if temp is higher than j minus gap index, assign to j index
                 else
                     break;
             }
-            a[j] = temp;
+            a[j] = temp; // assign the index of j the value of temp
         }
     }
 }

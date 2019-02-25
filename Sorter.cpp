@@ -21,6 +21,7 @@ void Sorter::createUnsortedArray(int array[]) {
         array[i] = rand() % 32767; // random num between 0 and 32767
 }
 
+
 /**
  * Write an array to a file
  * @param array Array to write
